@@ -1,0 +1,33 @@
+<ion-view title="3D Face Auth Simulation" id="page1">
+  <ion-content padding="true" class="has-header">
+    <form id="3DFaceAuthSimulation-form1" class="list">
+      <h1 id="3DFaceAuthSimulation-heading1" style="color:#000000;" ng-if="currSid">{{currStaff.isWorking ? "Working" : "Off Work"}}</h1>
+      <label class="item item-select" id="3DFaceAuthSimulation-select1">
+        <span class="input-label">Select Staff</span>
+        <select ng-model="selectedItem" ng-change="ChangeStaff(selectedItem)">
+          <option ng-repeat="(key, value) in staffs" ng-selected="selectedItem == key">{{key}}</option>
+        </select>
+      </label>
+    <ion-list id="3DFaceAuthSimulation-list1" ng-if="currSid">
+      <div class="item item-body" id="3DFaceAuthSimulation-list-item-container1">
+        <div id="3DFaceAuthSimulation-markdown2" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+            <strong>Login/Logout</strong>
+          </p>
+        </div>
+        <button id="3DFaceAuthSimulation-button4" class="button button-positive  button-block" ng-if="!currStaff.isWorking" ng-click="Login()">Login</button>
+        <button id="3DFaceAuthSimulation-button5" class="button button-stable  button-block" ng-if="currStaff.isWorking" ng-click="Logout()">Logout</button>
+      </div>
+      <div class="item item-body" id="3DFaceAuthSimulation-list-item-container2" ng-if="currStaff.isWorking">
+        <div id="3DFaceAuthSimulation-markdown3" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+            <strong>About Authentication</strong>
+          </p>
+        </div>
+        <button id="3DFaceAuthSimulation-button1" class="button button-balanced  button-block">Success Authenticate</button>
+        <button id="3DFaceAuthSimulation-button2" class="button button-assertive  button-block" ng-click="Logout()">Fail Authenticate</button>
+      </div>
+    </ion-list>
+    </form>
+  </ion-content>
+</ion-view>
