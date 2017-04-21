@@ -31,7 +31,7 @@ function ($scope, $stateParams) {
     
     $scope.Logout = function() {
         var last = new Date($scope.currStaff.last);
-        var diff = Math.round(Math.abs((new Date()-last)/(3600*1000)));
+        var diff = Math.round(Math.abs((new Date()-last)/(60*1000)));
         firebase.database().ref('staffs/' + $scope.currSid).update({
             "isWorking": false,
             "last": Date(),
