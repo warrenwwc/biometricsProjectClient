@@ -39,6 +39,17 @@ function ($scope, $stateParams) {
         });
     }
     
+    $scope.Fail = function() {
+        var last = new Date($scope.currStaff.last);
+        var diff = Math.round(Math.abs((new Date()-last)/(60*1000)));
+        firebase.database().ref('staffs/' + $scope.currSid).update({
+            "isWorking": false,
+            "access": false,
+            "last": Date(),
+            "whours": $scope.currStaff.whours + diff
+        });
+    }
+    
     
 
 }])
